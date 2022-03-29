@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body> 
+    <main class="container">
+        <section id="homescreen" class="flex-column flex-center"> 
+            <h1>Code Quiz Challenge</h1>
+            <p>Welcome to my coding quiz! Let's test your knowledge.</p>
+            <a href="./quiz.html" class="btn" id="start-quiz">Start Quiz</a> 
+            <a href="/highscores.html" id="view-highscores" class="btn">View Highscores</a>
+        </section>
+
+        <section id="question1" class="hidden question flex-column flex-center hidden">
+            <h2>Question 1</h2>
+            <a href="/quiz.html" class="small-btn">Answer 1</a>
+            <a href="/quiz.html" class="small-btn">Answer 2</a>
+            <a href="/quiz.html" class="small-btn">Answer 3</a>
+            <a href="/quiz.html" class="small-btn">Answer 4</a>
+        </section>
+
+        <section id="endscreen" class="hidden question flex-column flex-center hidden">
+            <h2>Congratulations! You Have Completed The Quiz</h2>
+            <p>Your final score is </p>
+            <form action="/action_page.php">
+                <label for="fname">Enter Your Initials Here:</label><br>
+                <input type="text" id="fname" name="fname" value=""><br>
+                <input type="submit" value="Submit">
+              </form> 
+        </section>
+
+        <section id="highscores" class="hidden flex-center flex-column">
+            <h2>Highscores</h2>
+            <a href="/quiz.html" class="end-btn">Go Back</a>
+            <a href="/quiz.html" class="end-btn">Clear</a>
+        </section>
+    </main>
+
+</body>
+
+
+<script src="./script.js"></script>
+</html>
