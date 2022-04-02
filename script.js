@@ -3,63 +3,63 @@ var questionEl = document.querySelector('#question1');
 var answers = Array.from(document.querySelectorAll('.answer-text'));
 var progressText = document.querySelector('#progressText');
 var score = document.querySelector('#question1');
-var timeLeft = 100;
+var timeLeft = 60;
 
 // Questions Array
 var questions = [
     {
-        question: "Question 1",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1" // change to string
+        question: "What does API stand for?",
+        answers: ["Application Programming Interface", "Applied Program Interaction", "Auxiliary Product Interpolation", "Altered Productivity Interloper"],
+        answer: "Application Programming Interface" // change to string
     },
     {
-        question: "Question 2",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "What does HTML stand for?",
+        answers: ["Holographic Terabyte Metastasis Loop", "Hypertext Transfer Manual Language", "Hypertext Markup Language", "Halted Transfer Marked Loop"],
+        answer: "Hypertext Markup Language"
     },
     {
-        question: "Question 3",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "What does CSS stand for?",
+        answers: ["Computer Surround Styling", "Cascading Style Sheets", "Computational Server System", "Compound Stack Server"],
+        answer: "Cascading Style Sheets"
     },
     {
-        question: "Question 4",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "What data type has either true or false as its value?",
+        answers: ["number", "float", "string", "boolean"],
+        answer: "boolean"
     },
     {
-        question: "Question 5",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer:"Answer 1"
+        question: "What does DOM stand for?",
+        answers: ["Direct Organization Model", "Document Object Model", "Disassembled Object Markup", "Distinct Orbital Module"],
+        answer:"Document Object Model"
     },
     {
-        question: "Question 6",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
-    },
-
-    {
-        question: "Question 7",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "What is the data type of window.confirm?",
+        answers: ["string", "number", "float", "boolean"],
+        answer: "boolean"
     },
 
     {
-        question: "Question 8",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "The getElementById method is equivalent to _______.",
+        answers: ["window.prompt", "querySelector", "stringify", "LocalStorage"],
+        answer: "querySelector"
     },
 
     {
-        question: "Question 9",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "An if/else statement is enclosed in _______.",
+        answers: ["curly braces", "quotations", "parantheses", "square brackets"],
+        answer: "parantheses"
     },
 
     {
-        question: "Question 10",
-        answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-        answer: "Answer 1"
+        question: "An array is used to store _____.",
+        answers: ["numbers", "strings", "other arrays", "all of the above"],
+        answer: "all of the above"
+    },
+
+    {
+        question: "Strings must be enclosed in",
+        answers: ["curly braces", "quotations", "parantheses", "square brackets"],
+        answer: "quotations"
     }
 
 
@@ -90,7 +90,7 @@ function generateQuestions() {
 }
 function checkAnswer(evt) {
     if(questionCount === 9 ) {
-        
+
     }
 
     evt.preventDefault();
@@ -133,10 +133,23 @@ function timer() {
         if (timeLeft<=0) {
             timeLeftEl.textContent = "GAME OVER"
             clearInterval(timeLeftInterval);
+            // window.location.href = "highscore.html"
         } 
         timeLeftEl.textContent = "Time Left: " + timeLeft + "s";
         timeLeft--;
     }, 1000);
+}
+
+function saveHighScores() {
+    var initials = initialsDiv.value.trim();
+    // TODO make sure initials is not empty;
+    // grabbing an empty array or scores array from local storage
+    var scores = JSON.parse(window.localStorage.getItem('scores')) || [];
+    // creatnig a new object with the values from the user, creating keys based off user score and initials
+    var newScore = {score:score,initials:initials};
+    // pushing the new object into the array
+    scores.push(newScore);
+    window.localStorage.setItem("scores", JSON.stringify(scores));
 }
 
 function startQuiz() {
@@ -147,4 +160,6 @@ function startQuiz() {
 }
 
 startQuiz();
+
+
 

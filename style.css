@@ -22,6 +22,10 @@ h2 {
     margin-bottom: 2.5rem;
 }
 
+.hidden{
+    display: none;
+}
+
 p{
     font-size: 3rem;
     margin-bottom: 3rem;
